@@ -10863,14 +10863,12 @@ jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).ready(function () {
         quantity: quantity,
         _token: jquery__WEBPACK_IMPORTED_MODULE_0___default()('meta[name="csrf-token"]').attr('content')
       },
-      cache: false,
       success: function success(response) {
         updateCart();
         showAlert(response.message);
       },
       error: function error(xhr, status, _error) {
-        showAlert(xhr.error);
-        console.error('Ошибка запроса:', _error);
+        showAlert(xhr.responseJSON.error);
       }
     });
   });

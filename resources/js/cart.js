@@ -84,14 +84,12 @@ $(document).ready(function () {
                 quantity: quantity,
                 _token: $('meta[name="csrf-token"]').attr('content')
             },
-            cache: false,
             success: function (response) {
                 updateCart();
                 showAlert(response.message);
             },
             error: function (xhr, status, error) {
-                showAlert(xhr.error);
-                console.error('Ошибка запроса:', error);
+                showAlert(xhr.responseJSON.error);
             }
         });
     });
