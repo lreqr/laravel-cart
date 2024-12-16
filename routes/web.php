@@ -18,3 +18,7 @@ Route::prefix('user')->group(function () {
     Route::post('/login', [UserController::class, 'login'])->name('user.login');
     Route::post('/logout', [UserController::class, 'logout'])->name('user.logout');
 });
+
+Route::fallback(function () {
+    return redirect('/ru/cart');
+});
